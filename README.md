@@ -2,59 +2,68 @@
 My submitted code for all learnyounode exercises
 
 ## Hello World
-
-    console.log("HELLO WORLD")
+```javascript
+console.log("HELLO WORLD")
+```
 
 ## Baby Steps
-    var total = 0
+```javascript
+var total = 0
 
-    for ( var i = 2; i < process.argv.length; i++ ){
-        total += Number(process.argv[i])
-    }
+for ( var i = 2; i < process.argv.length; i++ ){
+    total += Number(process.argv[i])
+}
 
-    console.log(total)
+console.log(total)
+```
 
 ## My First I/O
-    var fs = require('fs')
+```javascript
+var fs = require('fs')
 
-    var buf = fs.readFileSync(process.argv[2])
+var buf = fs.readFileSync(process.argv[2])
 
-    var str = buf.toString()
+var str = buf.toString()
 
-    var split = str.split('\n')
+var split = str.split('\n')
 
-    console.log(split.length - 1)
+console.log(split.length - 1)
+```
 
 ## My Async First I/O
-    var fs = require('fs')
+```javascript
+var fs = require('fs')
 
-    fs.readFile(process.argv[2], 'utf8', function (err, data) {
-      if ( err ) throw err
-      console.log( data.split('\n').length - 1 )
-    });
+fs.readFile(process.argv[2], 'utf8', function (err, data) {
+  if ( err ) throw err
+  console.log( data.split('\n').length - 1 )
+});
+```
 
 ## Filtered LS
-    var fs = require('fs')
-    var directory = process.argv[2]
-    var filter = process.argv[3]
+```javascript
+var fs = require('fs')
+var directory = process.argv[2]
+var filter = process.argv[3]
 
-    function byFileExtension( file ) {
+function byFileExtension( file ) {
 
-        if ( !file.includes('.') ) return
+    if ( !file.includes('.') ) return
 
-        var extension = file.substr( file.lastIndexOf( '.' ) + 1 )
+    var extension = file.substr( file.lastIndexOf( '.' ) + 1 )
 
-        return extension === filter
+    return extension === filter
 
-    }
+}
 
-    fs.readdir( directory, function ( err, files ) {
-        if ( err ) throw err
-        files.filter( byFileExtension )
-            .forEach( el => {
-                console.log( el )
-            } )
-    })
+fs.readdir( directory, function ( err, files ) {
+    if ( err ) throw err
+    files.filter( byFileExtension )
+        .forEach( el => {
+            console.log( el )
+        } )
+})
+```
 
 
 ## Make It Modular
