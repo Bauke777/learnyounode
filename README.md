@@ -57,16 +57,63 @@ function byFileExtension( file ) {
 }
 
 fs.readdir( directory, function ( err, files ) {
+
     if ( err ) throw err
     files.filter( byFileExtension )
         .forEach( el => {
             console.log( el )
         } )
+
 })
 ```
 
-
 ## Make It Modular
+
+### make_it_modular.js
+```javascript
+const mymodule = require('./myModule')
+const [, , dir, fltr] = process.argv
+
+mymodule( dir, fltr, ( err, data ) => {
+    if ( err ) {
+        console.error( err )
+        return
+    }
+    data.forEach( el => {
+        console.log( el )
+    } )
+ });
+```
+
+### myModule.js
+```javascript
+const fs = require('fs')
+
+function filterFiles (dir, fltr, callback) {
+
+    function byFileExtension( file ) {
+
+        if ( !file.includes('.') ) return
+
+        const extension = file.substr( file.lastIndexOf( '.' ) + 1 )
+
+        return extension === fltr
+
+    }
+
+    fs.readdir( dir, function ( err, files ) {
+
+        if (err) return callback(err);
+        const filesFiltered = files.filter( byFileExtension )
+
+        callback( null, filesFiltered )
+
+    })
+
+}
+
+module.exports = filterFiles
+```
 
 ## HTTP Client
 
