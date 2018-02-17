@@ -13,9 +13,11 @@ function byFileExtension( file ) {
 }
 
 fs.readdir( directory, function ( err, files ) {
+
     if ( err ) throw err
     files.filter( byFileExtension )
         .forEach( el => {
             console.log( el )
         } )
+
 })
