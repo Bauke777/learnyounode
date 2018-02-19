@@ -1,5 +1,5 @@
 {
-  "name": "learnyounode",
+  "name": "learnyounode_package",
   "version": "1.0.0",
   "description": "My submitted code for all learnyounode exercises",
   "main": "baby_steps.js",
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/Bauke777/learnyounode#readme",
   "dependencies": {
-    "concat-stream": "^1.6.0"
+    "async": "^2.6.0",
+    "bl": "^1.2.1",
+    "concat-stream": "^1.6.0",
+    "learnyounode": "^3.5.10"
   }
 }
