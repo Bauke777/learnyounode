@@ -1,0 +1,22 @@
+{
+  "name": "learnyounode",
+  "version": "1.0.0",
+  "description": "My submitted code for all learnyounode exercises",
+  "main": "baby_steps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bauke777/learnyounode.git"
+  },
+  "author": "Bauke Posthuma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bauke777/learnyounode/issues"
+  },
+  "homepage": "https://github.com/Bauke777/learnyounode#readme",
+  "dependencies": {
+    "concat-stream": "^1.6.0"
+  }
+}
