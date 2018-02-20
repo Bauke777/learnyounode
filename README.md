@@ -177,7 +177,6 @@ function printResults () {
   }
 }
 
-
 function httpGet (index) {
   http.get(process.argv[2 + index], function (response) {
     response.pipe(bl(function (err, data) {
@@ -232,6 +231,22 @@ const server = htnotp.createServer((req, res) => {
 server.listen(port)
 ```
 
-## HTTP Uppercaser
+## HTTP Uppercaserer
+```javascript
+const http = require('http')
+const map = require('through2-map')
+
+const port = process.argv[2]
+
+const server = http.createServer((req, res) => {
+    if (req.method != 'POST') return res.end('This server only accepts POST')
+
+    req.pipe(map(chunk => {
+        return chunk.toString().toUpperCase()
+    })).pipe(res)
+})
+
+server.listen(port)
+```
 
 ## HTTP JSON API Server
