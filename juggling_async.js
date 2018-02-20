@@ -1,10 +1,10 @@
 // Gebruikte bron: https://www.youtube.com/watch?v=IkySe5IoZtU
 
-const http = require('http');
-const bl = require('bl');
-const async = require('async');
+const http = require('http')
+const bl = require('bl')
+const async = require('async')
 
-const urls = process.argv.slice(2);
+const urls = process.argv.slice(2)
 
 async.eachSeries(urls, function(url, next) {
   http.get(url, function(response) {
