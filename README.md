@@ -149,8 +149,6 @@ http.get(process.argv[2], function(response) {
 
 ## Juggling Async
 ```javascript
-// Gebruikte bron: https://www.youtube.com/watch?v=IkySe5IoZtU
-
 const http = require('http');
 const bl = require('bl');
 const async = require('async');
@@ -203,6 +201,20 @@ for (var i = 0; i < 3; i++) {
 ```
 
 ## Time Server
+```javascript
+const net = require('net')
+const moment = require('moment')
+
+const port = process.argv[2]
+
+const server = net.createServer(socket => {
+    const time = moment().format('YYYY-MM-DD HH:mm')
+    socket.write(time)
+    socket.end('\n')
+})
+
+server.listen(port)
+```
 
 ## HTTP File Server
 
